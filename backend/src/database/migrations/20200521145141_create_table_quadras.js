@@ -13,7 +13,7 @@ exports.up = function(knex) {
 
       table.string('user_id').notNullable();
 
-      table.foreign('user_id').references('id').inTable('users');
+      table.foreign('user_id').references('id').inTable('users_quadra');
   });
 };
 
