@@ -37,5 +37,23 @@ module.exports = {
         await connection('quadras').where('id', id).delete();
 
         return response.status(204).send();
+    },
+
+    async index(request, response) {
+        const { id } = request.params;
+        const user_id = request.headers.authorization;
+
+        const quadra = await connection('quadras')
+        .where('id', id)
+        .select('user_id')
+        .first();
+
+        if(quadra.user_id != user_id) {
+            return response.status(401).json({ error: 'Você não tem permissão para isso' });
+        }
+
+        await connection('quadras').where('id', id).delete();
+
+        return response.status(204).json({Mensagem: 'Quadra alugada com sucesso'});
     }
 }
