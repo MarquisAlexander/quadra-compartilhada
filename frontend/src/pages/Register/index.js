@@ -9,7 +9,9 @@ import './styles.css'
 
 export default function Register() {
 
-    const [name, setName]= useState('');
+    const [ name, setName ]= useState('');
+    const [ email, setEmail ] = useState('');
+    const [ whatsapp, setWhatsapp ] = useState('');
 
     return (
         <div className="register-container">
@@ -31,6 +33,18 @@ export default function Register() {
                     placeholder="Nome"
                     value={name}
                     onChange={e => setName(e.target.value)}
+                    />
+
+                    <input
+                    type="email" placeholder="Seu email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    />
+
+                    <input
+                    placeholder="Whatsapp"
+                    value={whatsapp}
+                    onChange={e => setWhatsapp(e.target.value)}
                     />
                 </form>
             </div>

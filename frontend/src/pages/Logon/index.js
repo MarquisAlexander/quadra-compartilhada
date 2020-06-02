@@ -3,19 +3,37 @@ import { Link, useHistory } from 'react-router-dom'
 
 import { FiLogIn } from 'react-icons/fi';
 
+import api from '../../services/api.js';
+
 import './styles.css';
 
 import logoImg from '../../assets/logoPrincipal.svg'
 
 export default function Logon() {
     const [id, setId] = useState('');
+    const history = useHistory();
+
+    async function handleLogin(e) {
+        e.preventDefault();
+
+        try {
+            const response = await api.post("sessions", { id });
+
+            localStorage.setItem('user_id', id);
+            localStorage.setItem('userName', response.data.name);
+
+            history.push('/register');
+        } catch (err) {
+            alert('Falha no login, tente novamente!')
+        }
+    }
 
     return (
         <div className='logon-container'>
             <section className='form'>
                 <img src={logoImg} alt='Quadra Compartilhada' />
 
-                <form onSubmit={{}}>
+                <form onSubmit={handleLogin}>
                     <h1>Faça seu logon</h1>
 
                     <input
