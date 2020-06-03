@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+
+import api from '../../services/api.js';
 
 import { FiArrowLeft } from 'react-icons/fi';
 
@@ -12,6 +14,28 @@ export default function Register() {
     const [ name, setName ]= useState('');
     const [ email, setEmail ] = useState('');
     const [ whatsapp, setWhatsapp ] = useState('');
+
+    const history = useHistory();
+
+    async function handleRegister(e) {
+        e.preventDefault();
+
+        const data = {
+            name,
+            email,
+            whatsapp,
+        };
+
+        try {
+            const response = await api.post('users', data)
+
+            alert(`Seu ID de acesso: ${response.data.id}`)
+
+            history.push('/')
+        } catch (err){
+                alert('Erro no cadastro, tente novamente.');
+        }
+    } 
 
     return (
         <div className="register-container">
@@ -28,7 +52,7 @@ export default function Register() {
                     </Link>
                 </section>
 
-                <form onSubmit={{}}>
+                <form onSubmit={handleRegister}>
                     <input
                     placeholder="Nome"
                     value={name}
@@ -46,6 +70,8 @@ export default function Register() {
                     value={whatsapp}
                     onChange={e => setWhatsapp(e.target.value)}
                     />
+
+                    <button className="button" type="submit">Cadastrar</button>
                 </form>
             </div>
         </div>
