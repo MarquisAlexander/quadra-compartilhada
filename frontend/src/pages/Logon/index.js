@@ -22,7 +22,7 @@ export default function Logon() {
             localStorage.setItem('user_id', id);
             localStorage.setItem('userName', response.data.name);
 
-            history.push('/register');
+            history.push('/session');
         } catch (err) {
             alert('Falha no login, tente novamente!')
         }

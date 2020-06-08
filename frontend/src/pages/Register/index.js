@@ -54,18 +54,21 @@ export default function Register() {
 
                 <form onSubmit={handleRegister}>
                     <input
+                    required
                     placeholder="Nome"
                     value={name}
                     onChange={e => setName(e.target.value)}
                     />
 
                     <input
+                    required
                     type="email" placeholder="Seu email"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                     />
 
                     <input
+                    required
                     placeholder="Whatsapp"
                     value={whatsapp}
                     onChange={e => setWhatsapp(e.target.value)}
