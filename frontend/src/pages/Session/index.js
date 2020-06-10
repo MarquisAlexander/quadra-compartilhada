@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import api from '../../services/api';
 
-// import logo from '../../assets/logoPrincipal.svg'
+import logo from '../../assets/logoPrincipal.svg'
 import './styles.css';
 
 export default function Session() {
 
     const [quadras, setQuadras] = useState([]);
 
-    // const history = useHistory();
+    const history = useHistory();
 
     const userId = localStorage.getItem('userId');
     const userName = localStorage.getItem('userName');
@@ -32,9 +32,11 @@ export default function Session() {
         <>
         <div className="profile-container">
             <header>
-                {/* <img src={logo} alt="Quadra Compartilhada" /> */}
+                <img src={logo} alt="Quadra Compartilhada" />
                 <span> Bem vindo(a), {userName}</span>
             </header>
+
+            <h1>Suas Quadras cadastradas</h1>
             
             <ul>
                 {quadras.map(quadra => (
