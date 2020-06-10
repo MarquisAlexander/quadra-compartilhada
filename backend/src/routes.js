@@ -11,7 +11,7 @@ routes.post('/users', UserControllers.create);
 
 routes.post('/sessions', SessionControllers.create); 
 
-routes.get('/profile', PagstartControllers.index);
+routes.get('/session', PagstartControllers.index);
 
 routes.post('/createquadra', QuadraControllers.create);
 routes.delete('/quadra/:id', QuadraControllers.delete);
