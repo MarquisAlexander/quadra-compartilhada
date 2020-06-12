@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-
+import { Link, useHistory } from 'react-router-dom';
+import { FiPower } from 'react-icons/fi';
 import api from '../../services/api';
 
 import logo from '../../assets/logoPrincipal.svg'
@@ -34,6 +34,11 @@ export default function Session() {
             <header>
                 <img src={logo} alt="Quadra Compartilhada" />
                 <span> Bem vindo(a), {userName}</span>
+
+                <Link className="button01" to ="/register">Cadastrar nova quadra</Link>
+                <button onClick={{}} type="button">
+                    <FiPower size={18} color="#207A2B" />
+                </button>
             </header>
 
             <h1>Suas Quadras cadastradas</h1>

@@ -3,21 +3,29 @@
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: center;
+    padding: 10%;
+    background-image: url("../../assets/wallpaper01.png");
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: bottom;
+    background-size: 60%;
 }
 
 .logon-container section.form{
-    width: 100%;
-    max-width: 350px;
-    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
 }
 
 .logon-container section.form form {
     margin-top: 10px;
+    margin-left: 30px;
 }
 
 .logon-container section.form h1 {
     font-size: 32px;
     margin-bottom: 32px;
+}
+
+.logon-container section.form p {
+    margin-left: 5px;
 }
